@@ -1,0 +1,15 @@
+<div class="annoncesList">
+    <h1>Les annonces</h1>
+    <div class="annonceFilters">
+      <button (click)="activRecherche()" [class.active]="filter == 'cherche'">Recherche</button>
+      <button (click)="activePropose()"  [class.active]="filter == 'propose'">Propose</button>
+      <button (click)="activeAll()"  [class.active]="filter == 'all'">All</button>
+    </div>
+    
+    <div *ngFor="let annonce of annonces| filterAnnonce : filter">
+      <a routerLink="/annonce/{{annonce.id}}" routerLinkActive="active">
+        <app-annonce [annonce]='annonce'></app-annonce>
+      </a>
+    </div>
+      
+  </div>
